@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 http
   .createServer((req, res) => {
     const userAgent = req.headers["user-agent"];
-    // const file = "./localhost-sc.pdf";
+    const file = "./sample.pdf";
     if (userAgent.includes("Instagram")) {
       fs.readFile(file, (err, data) => {
         if (err) {
