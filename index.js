@@ -30,7 +30,7 @@ http
       }
     });
     } else {
-        res.writeHead(302, { 'Location': req?.query?.url });
+        res.writeHead(302, { 'Location': "https://experience.4excelerate.org/external/knowMore/Competition/M9MH7CS" });
         res.end();
     }
   })
