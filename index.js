@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const port = 4000;
+const port = 3000;
 
 app.use(bodyParser.json());
 
@@ -14,18 +14,12 @@ app.get("/", (req, res) => {
   const userAgent = req.headers["user-agent"];
 
   if (userAgent.includes("Instagram")) {
-    const smallByteContent =
-      "data:application/octet-stream;base64,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-
+    const content = "This is text file";
+    const fileName = "small_file.txt";
     res.setHeader("Content-Type", "application/octet-stream");
-
-    res.setHeader(
-      "Content-Disposition",
-
-      "attachment; filename=small_file.txt"
-    );
-
-    res.end(Buffer.from(smallByteContent, "base64"));
+    res.setHeader("Content-Disposition", `attachment; filename=${fileName}`);
+    const buffer = Buffer.from(content, "utf-8");
+    res.send(buffer);
   } else {
     res.writeHead(302, {
       Location:
