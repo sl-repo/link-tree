@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   } else {
     res.writeHead(302, {
       Location:
-        "https://experience.4excelerate.org/external/knowMore/Internship/I5ABAG8",
+        "https://linktr.ee/excelerate__",
     });
 
     res.end();
